@@ -8,6 +8,7 @@ class NotesApplication{
 	create(note_content){
 		this.noteArray.push(note_content);
 		return 'You created a new note'
+		consolelog("Man");
  }
 //create fuction to add content to the array
 	listNotes(){
