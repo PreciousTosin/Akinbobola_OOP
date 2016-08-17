@@ -20,7 +20,7 @@ class NotesApplication{
 	/*creating a fuction that takes index, returns 
 	the content of d note as a string*/
 	get(note_id){
-		for(var i > 0; i < this.noteArray.lenght; i++){
+		for(var i = 0; i < this.noteArray.length; i++){
 			if(this.noteArray[i] === this.noteArray[note_id]){
 				return this.noteArray[note_id];
 			}
@@ -36,8 +36,7 @@ class NotesApplication{
 				console.log(this.noteArray[i]);
 				console.log("By Author:" + this.author);
 				console.log("")
-			}
-			else{
+			}else{
 				console.log('could not find search_text in Note Id: '+ i);
 				console.log("")
 			}
@@ -45,13 +44,14 @@ class NotesApplication{
 	}
 	/*The deleten function deletes the note at the index note_id 
 	of the notes list. Changed the name because "delete" is a reserved keyword*/
-	deleten(note_id){
-		for(var i = 0; i < this.noteArray.length; i++ ){
-			if(this.noteArray[i] === this.noteArray[note_id]){
+	deleten(note_id) {
+		for(var i = 0; i < this.noteArray.length; i++ ){ 
+			if(this.noteArray[i] === this.noteArray[note_id]){ 
 				this.noteArray.splice(note_id, 1);
 				return console.log(this.noteArray);
-			}
-			else{return "Index not in Range";}
+			}else{
+				return "Index not in Range";
+				}
 		}
 	}
 	
@@ -60,11 +60,9 @@ class NotesApplication{
 	edit(note_id, new_content){
 		if(note_id < 0 || this.noteArray[note_id] > 0){
 			return "Index not in Range";
-			}
-			else{
+			}else{
 				this.noteArray[note_id] = new_content;
 				return console.log(this.noteArray);
-			}
-			
+			}		
 	}
 }
