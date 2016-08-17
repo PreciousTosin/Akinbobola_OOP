@@ -8,14 +8,14 @@ class NotesApplication{
 	create(note_content){
 		this.noteArray.push(note_content);
 		return 'You created a new note'
-		consolelog("Man");
  }
 //create fuction to add content to the array
 	listNotes(){
-		for(i = 0; i < this.noteArray; i++ ){
+		for(i = 0; i < this.noteArray.length; i++ ){
 			console.log("NoteID: "+ i);
 			console.log(this.noteArray[i]);
 			console.log("By Author" + " " + this.author);
+			console.log("")
 		}
 	}
 	/*creating a fuction that takes index, returns 
@@ -45,7 +45,7 @@ class NotesApplication{
 	}
 	/*The deleten function deletes the note at the index note_id 
 	of the notes list. Changed the name because "delete" is a reserved keyword*/
-	deleten(note_id) {
+	delete(note_id) {
 		for(var i = 0; i < this.noteArray.length; i++ ){ 
 			if(this.noteArray[i] === this.noteArray[note_id]){ 
 				this.noteArray.splice(note_id, 1);
