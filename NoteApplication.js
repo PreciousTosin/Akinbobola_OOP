@@ -28,8 +28,20 @@ class NotesApplication{
 	}
 	/*creating a method that accepts a search string and 
 	returns the notes that have the search string*/
-	search(search_text){
-		
+	search(search_text) {
+		for(var i = 0; i < this.noteArray.length; i++ ){
+			if(this.noteArray[i].match(search_text)){
+				console.log("Showing results for search " + search_text);
+				console.log("Note_id: " + i);
+				console.log(this.noteArray[i]);
+				console.log("By Author:" + this.author);
+				console.log("")
+			}
+			else{
+				console.log('could not find search_text in Note Id: '+ i);
+				console.log("")
+			}
+		}
 	}
 	/*The deleten function deletes the note at the index note_id 
 	of the notes list. Changed the name because "delete" is a reserved keyword*/
