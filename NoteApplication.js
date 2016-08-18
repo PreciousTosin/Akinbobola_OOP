@@ -1,53 +1,52 @@
 //create a new class called NotesApplication
-class NotesApplication{
-	constructor(author){
+var NotesApplication = function(author){
 		this.author = author;
 		this.noteArray = [];
-	}
+
 //create fuction to add content to the array
-	create(note_content){
+	NotesApplication.prototype.create = function(note_content){
 		this.noteArray.push(note_content);
-		return 'You created a new note'
- }
+		return 'You created a new note';
+ };
 //create fuction to add content to the array
-	listNotes(){
+	NotesApplication.prototype.listNotes = function(){
 		for(i = 0; i < this.noteArray.length; i++ ){
 			console.log("NoteID: "+ i);
 			console.log(this.noteArray[i]);
 			console.log("By Author" + " " + this.author);
-			console.log("")
+			console.log("");
 		}
-	}
+	};
 	/*creating a fuction that takes index, returns 
 	the content of d note as a string*/
-	get(note_id){
+	NotesApplication.prototype.get = function (note_id){
 		for(var i = 0; i < this.noteArray.length; i++){
 			if(this.noteArray[i] === this.noteArray[note_id]){
 				return this.noteArray[note_id];
 			}else{
-				return "Note does not exist"
+				return "Note does not exist";
 			}
 		}
-	}
+	};
 	/*creating a method that accepts a search string and 
 	returns the notes that have the search string*/
-	search(search_text) {
+	NotesApplication.prototype.search = function(search_text) {
 		for(var i = 0; i < this.noteArray.length; i++ ){
 			if(this.noteArray[i].match(search_text)){
 				console.log("Showing results for search " + search_text);
 				console.log("Note_id: " + i);
 				console.log(this.noteArray[i]);
 				console.log("By Author:" + this.author);
-				console.log("")
+				console.log("");
 			}else{
 				console.log('could not find search_text in Note Id: '+ i);
-				console.log("")
+				console.log("");
 			}
 		}
-	}
+	};
 	/*The deleten function deletes the note at the index note_id 
 	of the notes list.*/
-	delete(note_id) {
+	NotesApplication.prototype.delete = function(note_id) {
 		for(var i = 0; i < this.noteArray.length; i++ ){ 
 			if(this.noteArray[i] === this.noteArray[note_id]){ 
 				this.noteArray.splice(note_id, 1);
@@ -56,16 +55,16 @@ class NotesApplication{
 				return "Index not in Range";
 				}
 		}
-	}
+	};
 	
 	/*This function replaces the content in the 
 	note at note_id with new_content.*/
-	edit(note_id, new_content){
+	NotesApplication.prototype.edit = function(note_id, new_content){
 		if(note_id < 0 || this.noteArray[note_id] > 0){
 			return "Index not in Range";
 			}else{
 				this.noteArray[note_id] = new_content;
 				return console.log(this.noteArray);
 			}		
-	}
-}
+	};
+};
