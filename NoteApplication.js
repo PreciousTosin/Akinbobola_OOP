@@ -46,7 +46,7 @@ class NotesApplication{
 		}
 	}
 	/*The deleten function deletes the note at the index note_id 
-	of the notes list. Changed the name because "delete" is a reserved keyword*/
+	of the notes list.*/
 	delete(note_id) {
 		for(var i = 0; i < this.noteArray.length; i++ ){ 
 			if(this.noteArray[i] === this.noteArray[note_id]){ 
