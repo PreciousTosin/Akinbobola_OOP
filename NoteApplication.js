@@ -24,6 +24,8 @@ class NotesApplication{
 		for(var i = 0; i < this.noteArray.length; i++){
 			if(this.noteArray[i] === this.noteArray[note_id]){
 				return this.noteArray[note_id];
+			}else{
+				return "Note does not exist"
 			}
 		}
 	}
