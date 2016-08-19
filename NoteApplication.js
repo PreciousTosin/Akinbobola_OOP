@@ -6,12 +6,30 @@ var NotesApplication = function(author){
 	this.author = author;
 	this.noteArray = [];
 
-/*this creates the create function that takes in new notes 
-	as parameters to add content to the array*/
+
+ 	/* The purpose of the code below is to increment a counter 
+ 				variable each time the create function is called for an 
+ 				instance of the class.
+ 	 * a variable "count" is created 
+ 	 * a self invoking function is added to the variable
+ 	 * the inner function increases the counter variable anytime 
+ 	 			the function is called*/
+ 	var count = (function () {
+	    		var counter = 0;
+	    		return function () {return counter += 1;};
+				})();
+
+	/*this creates the create function that takes in new notes 
+	as parameters to add content to the array
+	 * it returns a value for the count variable each time it 
+	 *  is called*/
 	NotesApplication.prototype.create = function(note_content){
-		this.noteArray.push(note_content);
-		console.log('You created a new note');
-		return this.noteArray;
+			this.noteArray.push(note_content);
+			console.log('You created a new note');
+			//return this.noteArray;
+			//console.log(counter);
+			return count();
+		
  	};
 
 /*creates a function that list it contents, 
