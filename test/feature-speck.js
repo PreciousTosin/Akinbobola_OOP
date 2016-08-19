@@ -5,9 +5,12 @@ var note = new NotesApplication("John");
 
 describe("The functionality of the create function", function(){
 
-	it("It should return an array", function() {
-		var noteformat = note.create("James is a guy","Matt is a guy")
-		expect(noteformat.length).to.be.above(0);
+	it("It should add a value to the array each time create function is called", function() {
+		var noteformat = []
+		noteformat.push(note.create("James is a guy"));
+		noteformat.push(note.create("John is a guy"));
+		noteformat.push(note.create("Jude is a guy"))
+		expect(noteformat.length).to.be.eql(3);
 	})
 });
 
